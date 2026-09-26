@@ -1,4 +1,4 @@
-# catsys — Guia de Execução e Entrega
+# cartsys — Guia de Execução e Entrega
 
 ## 1. Visão geral
 
@@ -96,70 +96,39 @@ Services/FinanceiroApiService.cs
 
 ## 4. Banco de dados
 
-O banco utilizado nos testes é:
+O projeto utiliza PostgreSQL.
+
+O script de criação do banco está disponível em:
 
 ```text
-Servidor: localhost
-Porta: 5432
-Banco: catsys
-Usuário: postgres
-Senha: postgres
+CreateDatabase_PostgreSQL.sql
 ```
 
-A estrutura possui, entre outras, as tabelas:
+Execute o script no banco que será utilizado para a avaliação.
 
-```text
-CLIENTE
-PRODUTO
-VENDA
-VENDA_ITEM
-FINANCEIRO
-```
+### Configuração do ERP Vendas
 
-Também existe a view:
-
-```text
-VW_VENDAS_FINANCEIRO
-```
-
-utilizada para consulta conjunta das informações de venda e financeiro.
-
-### Configuração do Delphi
-
-O ERP Vendas utiliza o arquivo:
+Antes de executar o ERP Vendas, ajuste o arquivo:
 
 ```text
 config.ini
 ```
 
-Exemplo:
+com os dados de conexão do PostgreSQL do ambiente utilizado.
 
-```ini
-[DATABASE]
-Server=localhost
-Port=5432
-Database=catsys
-Username=postgres
-Password=postgres
-```
-
-Caso o ambiente de execução seja diferente, os dados devem ser ajustados conforme a instalação do PostgreSQL.
+O arquivo deve conter as informações necessárias para a conexão com o banco, conforme a configuração utilizada pela aplicação.
 
 ### Configuração da API
 
-A API utiliza a connection string configurada no `Web.config`.
+A API também deve ser configurada para utilizar o banco de dados do ambiente de avaliação.
 
-O ambiente utilizado no desenvolvimento aponta para:
+A connection string está no:
 
 ```text
-Host=localhost
-Port=5432
-Database=catsys
-Username=postgres
-Password=postgres
+ERPFinanceiro.Api/Web.config
 ```
 
----
+Ajuste os dados de conexão conforme o ambiente em que a API será executada.
 
 ## 5. Ordem para executar os sistemas
 
@@ -214,7 +183,7 @@ Confirme a plataforma configurada para o ambiente de execução e execute o proj
 Antes de criar uma venda, certifique-se de que:
 
 - o PostgreSQL está ativo;
-- o banco `catsys` está disponível;
+- o banco `cartsys` está disponível;
 - a API financeira está executando em `localhost:5000`.
 
 ---
@@ -506,12 +475,6 @@ A entrega foi limpa de artefatos de compilação e arquivos temporários para fa
 
 ---
 
-## 19. Observação sobre configuração
-
-Os arquivos de configuração presentes no projeto utilizam os dados do ambiente utilizado durante o desenvolvimento.
-
-Em um ambiente real, recomenda-se não versionar senhas de banco diretamente e utilizar configuração segura por ambiente.
-
 ---
 
 ## 20. Resumo do fluxo completo
@@ -532,7 +495,7 @@ Em um ambiente real, recomenda-se não versionar senhas de banco diretamente e u
                            ▼
                 ┌──────────────────────┐
                 │      PostgreSQL      │
-                │       catsys         │
+                │       cartsys         │
                 └──────────┬───────────┘
                            ▲
                            │
