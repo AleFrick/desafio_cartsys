@@ -1,0 +1,105 @@
+# ============================================================
+# catsys - Delphi + C#
+# ============================================================
+
+# Delphi / RAD Studio
+*.dcu
+*.dcp
+*.bpl
+*.dres
+*.rsm
+*.map
+*.exe
+*.dll
+*.ocx
+*.so
+*.~*
+*.local
+*.identcache
+*.tvsconfig
+*.stat
+*.otares
+*.ddp
+*.dsk
+*.res.bak
+*.dproj.local
+*.groupproj.local
+*.cbproj.local
+*.bdsproj.local
+*.bdsgroup.local
+
+__history/
+__recovery/
+
+# Delphi IDE
+*.dcu
+*.dcp
+*.bpl
+
+# Visual Studio / .NET
+[Bb]in/
+[Oo]bj/
+.vs/
+.idea/
+.vscode/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.rsuser
+*.sln.docstates
+TestResults/
+*.trx
+
+# ReSharper / Rider
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Coverage
+coverage/
+*.coverage
+*.coveragexml
+
+# NuGet packages restored locally
+packages/*
+!packages/build/
+!packages/repositories.config
+*.nupkg
+*.snupkg
+
+# Logs / temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Local configuration / secrets
+.env
+.env.*
+!.env.example
+config.local.ini
+config.*.local.ini
+App.local.config
+Web.local.config
+
+# Generated reports / exports
+*.pdf
+*.xlsx
+*.csv
+
+# Source report templates, SQL scripts, project files and source code
+# are intentionally NOT ignored.

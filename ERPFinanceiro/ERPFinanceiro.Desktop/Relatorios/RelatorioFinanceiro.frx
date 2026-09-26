@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp"
+        ReportInfo.Description="Relatório Financeiro de Vendas"
+        ReportInfo.Created="09/24/2026 16:00:00"
+        ReportInfo.Modified="09/24/2026 16:00:00"
+        ReportInfo.CreatorVersion="2021.4.0">
+
+<Dictionary>
+
+<TableDataSource Name="Financeiro"
+                 ReferenceName="Financeiro"
+                 DataType="System.Int32"
+                 Enabled="true">
+
+<Column Name="VendaId" DataType="System.Int32"/>
+<Column Name="DataVenda" DataType="System.DateTime"/>
+<Column Name="Cliente" DataType="System.String"/>
+<Column Name="Valor" DataType="System.Decimal"/>
+<Column Name="Status" DataType="System.String"/>
+<Column Name="DataVencimento" DataType="System.DateTime"/>
+<Column Name="DataQuitacao" DataType="System.DateTime"/>
+<Column Name="DataCancelamento" DataType="System.DateTime"/>
+<Column Name="MotivoCancelamento" DataType="System.String"/>
+
+</TableDataSource>
+
+<Total Name="TotalValor"
+        Expression="[Financeiro.Valor]"
+        Evaluator="Data1"
+        PrintOn="DataFooter1"/>
+
+</Dictionary>
+
+<ReportPage Name="Page1">
+
+<ReportTitleBand Name="ReportTitle1" Width="718.2" Height="70" CanGrow="true">
+
+<TextObject Name="Titulo"
+            Left="0"
+            Top="5"
+            Width="718.2"
+            Height="30"
+            Text="RELATÓRIO FINANCEIRO DE VENDAS"
+            HorzAlign="Center"
+            VertAlign="Center"
+            Font="Arial, 16pt, style=Bold"/>
+
+<TextObject Name="Subtitulo"
+            Left="0"
+            Top="38"
+            Width="718.2"
+            Height="20"
+            Text="Relatório financeiro das vendas"
+            HorzAlign="Center"
+            VertAlign="Center"
+            Font="Arial, 9pt"/>
+
+</ReportTitleBand>
+
+<DataHeaderBand Name="DataHeader1"
+                Width="718.2"
+                Height="32"
+                Fill.Color="LightGray">
+
+<TextObject Name="HeaderVenda"
+            Left="0" Top="0" Width="55" Height="32"
+            Border.Lines="All"
+            Text="Venda"
+            HorzAlign="Center" VertAlign="Center"
+            Font="Arial, 8pt, style=Bold"/>
+
+<TextObject Name="HeaderCliente"
+            Left="55" Top="0" Width="165" Height="32"
+            Border.Lines="All"
+            Text="Cliente"
+            VertAlign="Center"
+            Font="Arial, 8pt, style=Bold"/>
+
+<TextObject Name="HeaderData"
+            Left="220" Top="0" Width="80" Height="32"
+            Border.Lines="All"
+            Text="Data"
+            HorzAlign="Center" VertAlign="Center"
+            Font="Arial, 8pt, style=Bold"/>
+
+<TextObject Name="HeaderValor"
+            Left="300" Top="0" Width="90" Height="32"
+            Border.Lines="All"
+            Text="Valor"
+            HorzAlign="Right" VertAlign="Center"
+            Font="Arial, 8pt, style=Bold"/>
+
+<TextObject Name="HeaderStatus"
+            Left="390" Top="0" Width="95" Height="32"
+            Border.Lines="All"
+            Text="Status"
+            HorzAlign="Center" VertAlign="Center"
+            Font="Arial, 8pt, style=Bold"/>
+
+<TextObject Name="HeaderVencimento"
+            Left="485" Top="0" Width="90" Height="32"
+            Border.Lines="All"
+            Text="Vencimento"
+            HorzAlign="Center" VertAlign="Center"
+            Font="Arial, 8pt, style=Bold"/>
+
+<TextObject Name="HeaderQuitacao"
+            Left="575" Top="0" Width="143.2" Height="32"
+            Border.Lines="All"
+            Text="Quitação"
+            HorzAlign="Center" VertAlign="Center"
+            Font="Arial, 8pt, style=Bold"/>
+
+</DataHeaderBand>
+
+<DataBand Name="Data1"
+          Width="718.2"
+          Height="30"
+          DataSource="Financeiro"
+          CanGrow="true">
+
+<TextObject Name="Venda"
+            Left="0" Top="0" Width="55" Height="30"
+            Border.Lines="All"
+            Text="[Financeiro.VendaId]"
+            HorzAlign="Center" VertAlign="Center"
+            Font="Arial, 8pt"/>
+
+<TextObject Name="ClienteTexto"
+            Left="55" Top="0" Width="165" Height="30"
+            Border.Lines="All"
+            Text="[Financeiro.Cliente]"
+            VertAlign="Center"
+            Font="Arial, 8pt"/>
+
+<TextObject Name="DataTexto"
+            Left="220" Top="0" Width="80" Height="30"
+            Border.Lines="All"
+            Text="[Financeiro.DataVenda]"
+            HorzAlign="Center" VertAlign="Center"
+            Font="Arial, 8pt"/>
+
+<TextObject Name="ValorTexto"
+            Left="300" Top="0" Width="90" Height="30"
+            Border.Lines="All"
+            Text="[Financeiro.Valor]"
+            HorzAlign="Right" VertAlign="Center"
+            Font="Arial, 8pt"/>
+
+<TextObject Name="StatusTexto"
+            Left="390" Top="0" Width="95" Height="30"
+            Border.Lines="All"
+            Text="[Financeiro.Status]"
+            HorzAlign="Center" VertAlign="Center"
+            Font="Arial, 8pt"/>
+
+<TextObject Name="Vencimento"
+            Left="485" Top="0" Width="90" Height="30"
+            Border.Lines="All"
+            Text="[Financeiro.DataVencimento]"
+            HorzAlign="Center" VertAlign="Center"
+            Font="Arial, 8pt"/>
+
+<TextObject Name="Quitacao"
+            Left="575" Top="0" Width="143.2" Height="30"
+            Border.Lines="All"
+            Text="[Financeiro.DataQuitacao]"
+            HorzAlign="Center" VertAlign="Center"
+            Font="Arial, 8pt"/>
+
+</DataBand>
+
+<DataFooterBand Name="DataFooter1"
+                Width="718.2"
+                Height="40">
+
+<TextObject Name="TotalLabel"
+            Left="390" Top="5" Width="100" Height="25"
+            Text="TOTAL:"
+            HorzAlign="Right" VertAlign="Center"
+            Font="Arial, 9pt, style=Bold"/>
+
+<TextObject Name="TotalValue"
+            Left="490" Top="5" Width="228.2" Height="25"
+            Text="[TotalValor]"
+            HorzAlign="Right" VertAlign="Center"
+            Font="Arial, 9pt, style=Bold"/>
+
+</DataFooterBand>
+
+<PageFooterBand Name="PageFooter1"
+                Width="718.2"
+                Height="25">
+
+<TextObject Name="Rodape"
+            Left="0" Top="0" Width="500" Height="25"
+            Text="Relatório Financeiro de Vendas"
+            VertAlign="Center"
+            Font="Arial, 8pt"/>
+
+<TextObject Name="Pagina"
+            Left="550" Top="0" Width="168.2" Height="25"
+            Text="Página [PageN]"
+            HorzAlign="Right" VertAlign="Center"
+            Font="Arial, 8pt"/>
+
+</PageFooterBand>
+
+</ReportPage>
+
+</Report>
